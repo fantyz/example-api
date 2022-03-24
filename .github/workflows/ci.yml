@@ -21,6 +21,13 @@ jobs:
       uses: actions/checkout@v2
     - name: vet
       run: go vet ./...
+    - name: migrate test db
+      uses: joshuaavalon/flyway-action@v1
+      with:
+        url: jdbc:postgresql://postgres:5432/postgres
+        user: postgres
+        password: postgres
+        localhost: filesystem:./migrations
     - name: test
       run: go test ./... -tags integration -v
     - name: build

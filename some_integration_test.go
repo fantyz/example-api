@@ -26,6 +26,10 @@ func TestArbitraryIntegration(t *testing.T) {
 		break
 	}
 
-	// time to use the (empty) database for testing
-	assert.NoError(t, db.Ping())
+	// time to do some testing! The database should be setup but empty. Lets verify the `hello` table exist.
+	var count int
+	err = db.QueryRow(`SELECT COUNT(*) FROM hello`).Scan(&count)
+	if assert.NoError(t, err) {
+		assert.Equal(t, 0, count)
+	}
 }
