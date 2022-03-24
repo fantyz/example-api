@@ -1,3 +1,5 @@
+![main](https://github.com/fantyz/example-api/actions/workflows/ci.yml/badge.svg)
+
 # Example API
 
 The purpose of this repository is to provide an example of an as-complete-as-possible basic API written in Go.
