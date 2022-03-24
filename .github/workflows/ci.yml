@@ -24,10 +24,10 @@ jobs:
     - name: test
       run: go test ./... -tags integration -v
     - name: build
-      if: ${{ github.ref == 'refs/heads/master' }}
+      if: ${{ github.ref == 'refs/heads/main' }}
       run: go build -o example-api
     - name: upload build
-      if: ${{ github.ref == 'refs/heads/master' }}
+      if: ${{ github.ref == 'refs/heads/main' }}
       uses: actions/upload-artifact@v2
       with:
         name: example-api
