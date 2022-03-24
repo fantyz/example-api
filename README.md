@@ -7,7 +7,6 @@ It contains the following parts:
 * Basic API with:
   - Config
   - Logging (optionally structured)
-  - ?
 * Unit tests
 * Integration tests
 * Working CICD that:
