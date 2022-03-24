@@ -27,7 +27,7 @@ jobs:
         url: jdbc:postgresql://postgres:5432/postgres
         user: postgres
         password: postgres
-        localhost: filesystem:./migrations
+        locations: filesystem:./migrations
     - name: test
       run: go test ./... -tags integration -v
     - name: build
