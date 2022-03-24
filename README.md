@@ -14,7 +14,6 @@ It contains the following parts:
   - Vets
   - Run unit tests
   - Run integration tests
-  - Branch based deployment (TODO/needs infrastructure in place)
 
 ## Running tests
 
@@ -35,3 +34,6 @@ Additional features that I'd like to include:
 * Use a test suite for integration tests to only connect once and allow easier setup/teardown of the individual tests
 * Improve the integration test setup to work for local development as well (grab config from environment/use defaults that are intended for local)
 * Add example of using fixtures for integration tests
+* Database migration as part of the CICD (also needed for any kind of meaningful integration tests- tests should NOT be fiddling with schema creation)
+* Produce a docker container rather than an executable
+* Branch based deployment of service to <somewhere> (need infrastructure for this - example-infra repo to examplify how to work with infrastructure as well?)
