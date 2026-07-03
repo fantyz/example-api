@@ -30,6 +30,8 @@ jobs:
         locations: filesystem:./migrations
     - name: test
       run: go test ./... -tags integration -v
+    - name: allow git in workspace
+      run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
     - name: build
       if: ${{ github.ref == 'refs/heads/main' }}
       run: go build -o example-api
