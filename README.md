@@ -11,12 +11,12 @@ It contains the following parts:
   - Logging (optionally structured)
 * Unit tests
 * Integration tests
+* Containerization
 * Working CICD that:
   - Lints
   - Vets
   - Run unit tests
   - Run integration tests
-* Containerization
 
 ## Running tests
 
@@ -31,10 +31,6 @@ The example api is containerized using docker and relies on vendoring dependenci
 1. Run `go mod vendor`
 1. Run `docker build -t example-api .`
 1. Run `docker run --rm -p 8000:8000 example-api`
-
-## How do I use this?
-
-Make a copy and replace the example endpoints/tests with your own!
 
 ## TODO
 
