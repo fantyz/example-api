@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
-    container: golang:1
+    container: golang:1.25
     services:
       postgres:
         image: postgres
@@ -35,7 +35,7 @@ jobs:
       run: go build -o example-api
     - name: upload build
       if: ${{ github.ref == 'refs/heads/main' }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v7
       with:
         name: example-api
         path: example-api
