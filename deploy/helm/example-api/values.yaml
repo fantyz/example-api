@@ -1,0 +1,49 @@
+replicaCount: 2
+
+image:
+    repository: 345044991850.dkr.ecr.eu-west-1.amazonaws.com/example-api
+    pullPolicy: IfNotPresent
+    tag: latest
+
+serviceAccount:
+    create: true
+    name: ""
+
+service:
+    type: ClusterIP
+    port: 80
+    targetPort: 8000
+
+ingress:
+    enabled: true
+    className: alb
+    annotations:
+        alb.ingress.kubernetes.io/scheme: internet-facing
+        alb.ingress.kubernetes.io/target-type: ip
+        alb.ingress.kubernetes.io/healthcheck-path: /heartbeat
+    paths:
+        - path: /
+          pathType: Prefix
+
+resources:
+    requests:
+        cpu: 50m
+        memory: 32Mi
+    limits:
+        cpu: 100m
+        memory: 64Mi
+
+probes:
+    readiness:
+        path: /heartbeat
+        initialDelaySeconds: 2
+        periodSeconds: 5
+
+    liveness:
+        path: /heartbeat
+        initialDelaySeconds: 5
+        periodSeconds: 10
+
+environment:
+    logLevel: INFO
+    logJSON: true
